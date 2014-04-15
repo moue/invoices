@@ -9,28 +9,20 @@ class PermissionsTableSeeder extends Seeder {
 
         $permissions = array(
             array(
-                'name'      => 'manage_blogs',
-                'display_name'      => 'manage blogs'
+                'name'              => 'pay_invoice',
+                'display_name'      => 'pay invoice'
             ),
             array(
-                'name'      => 'manage_posts',
-                'display_name'      => 'manage posts'
+                'name'              => 'manage_invoices',
+                'display_name'      => 'manage invoices'
             ),
             array(
-                'name'      => 'manage_comments',
-                'display_name'      => 'manage comments'
-            ),
-            array(
-                'name'      => 'manage_users',
+                'name'              => 'manage_users',
                 'display_name'      => 'manage users'
             ),
             array(
-                'name'      => 'manage_roles',
+                'name'              => 'manage_roles',
                 'display_name'      => 'manage roles'
-            ),
-            array(
-                'name'      => 'post_comment',
-                'display_name'      => 'post comment'
             ),
         );
 
@@ -40,33 +32,21 @@ class PermissionsTableSeeder extends Seeder {
 
         $permissions = array(
             array(
-                'role_id'      => 1,
+                'role_id'       => 1,
                 'permission_id' => 1
             ),
             array(
-                'role_id'      => 1,
+                'role_id'       => 1,
                 'permission_id' => 2
             ),
             array(
-                'role_id'      => 1,
+                'role_id'       => 1,
                 'permission_id' => 3
             ),
             array(
-                'role_id'      => 1,
-                'permission_id' => 4
-            ),
-            array(
-                'role_id'      => 1,
-                'permission_id' => 5
-            ),
-            array(
-                'role_id'      => 1,
-                'permission_id' => 6
-            ),
-            array(
-                'role_id'      => 2,
-                'permission_id' => 6
-            ),
+                'role_id'       => 2,
+                'permission_id' => 1
+            )
         );
 
         DB::table('permission_role')->insert( $permissions );

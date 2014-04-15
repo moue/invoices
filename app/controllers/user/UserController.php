@@ -1,5 +1,6 @@
 <?php
 
+
 class UserController extends BaseController {
 
     /**
@@ -29,7 +30,51 @@ class UserController extends BaseController {
         if($redirect){return $redirect;}
 
         // Show the page
-        return View::make('site/user/index', compact('user'));
+
+        if (Auth::user()->hasRole('admin')) {
+
+            $id = Auth::user()->id;
+
+            // Get total amount of revenue user has brought in
+            $revenue = DB::table('invoices')
+                ->where('invoices.user_id','=',$id)
+                ->sum('invoices.cost');
+
+            // Get total amount of accounts that user manages
+            $accounts_owned = Auth::User()->advertisers->count();
+
+            // Get total amount of invoices that have been sent
+            $sent = DB::table('invoices')
+                ->where('invoices.user_id','=',$id)
+                ->count();
+
+            // Get total amount of invoices that are have been paid
+            $paid = DB::table('invoices')
+                ->where('invoices.user_id','=',$id)
+                ->sum('invoices.paid');
+            
+            $unpaid = $sent-$paid;
+
+            return View::make('admin.dashboard')
+                ->with('revenue', $revenue)
+                ->with('accounts_owned', $accounts_owned)
+                ->with('sent', $sent)
+                ->with('unpaid', $unpaid);
+        }
+        else {
+            $user_id = Auth::user()->id;
+            $advertiser = DB::table('advertisers')->where('contact_id', '=', $user_id)->first();
+            $invoices = DB::table('invoices')->where('advertiser_id', '=', $advertiser->id)->get();
+
+            /* Get full invoice query
+            $invoices = DB::table('invoices')
+                ->leftJoin('advertisers', 'invoices.advertiser_id','=','advertisers.id')
+                ->get();
+            */
+
+            return View::make('site.user.invoice.index', compact('invoices'));
+        }
+        
     }
 
     /**
@@ -300,31 +345,12 @@ class UserController extends BaseController {
         return Redirect::to('/');
     }
 
-    /**
-     * Get user's profile
-     * @param $username
-     * @return mixed
-     */
-    public function getProfile($username)
-    {
-        $userModel = new User;
-        $user = $userModel->getUserByUsername($username);
-
-        // Check if the user exists
-        if (is_null($user))
-        {
-            return App::abort(404);
-        }
-
-        return View::make('site/user/profile', compact('user'));
-    }
-
     public function getSettings()
     {
         list($user,$redirect) = User::checkAuthAndRedirect('user/settings');
         if($redirect){return $redirect;}
 
-        return View::make('site/user/profile', compact('user'));
+        return View::make('site/user/settings', compact('user'));
     }
 
     /**
@@ -344,5 +370,48 @@ class UserController extends BaseController {
             $redirect .= (empty($url3)? '' : '/' . $url3);
         }
         return $redirect;
+    }
+
+    public function getInvoices()
+    {
+        $user_id = Auth::user()->id;
+        $advertiser = DB::table('advertisers')->where('contact_id', '=', $user_id)->first();
+        $invoices = DB::table('invoices')->where('advertiser_id', '=', $advertiser->id)->get();
+
+        /* Get full invoice query
+        $invoices = DB::table('invoices')
+            ->leftJoin('advertisers', 'invoices.advertiser_id','=','advertisers.id')
+            ->get();
+        */
+
+        return View::make('site.user.invoice.index', compact('invoices'));
+    }
+
+    public function getPay($id) {
+
+        $user_id = Auth::user()->id;
+        $advertiser = DB::table('advertisers')->where('contact_id', '=', $user_id)->first();
+        $invoices = DB::table('invoice_items')->where('invoice_id', '=', $id)->get();
+
+        /* Get full invoice query
+        $invoices = DB::table('invoices')
+            ->leftJoin('advertisers', 'invoices.advertiser_id','=','advertisers.id')
+            ->get();
+        */
+
+        $size_options = DB::table('invoice_items_sizes')->lists('size', 'id');
+        return View::make('site.user.invoice.pay', compact('id', 'size_options', 'invoices'));
+    }
+
+    public function postPay($id) {
+        $billing = App::make('helpers\Billing\BillingInterface');
+        $billing->charge([
+            'email' => Input::get('email'),
+            'token' => Input::get('stripe-token')
+        ]);
+        
+        // Update to a paid invoice
+        DB::table('invoices')->where('id', '=', $id)->update(array('paid'=>'1'));
+        return View::make('site.user.invoice.index')->with('notification', 'Payment successful');
     }
 }

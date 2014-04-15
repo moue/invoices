@@ -10,21 +10,25 @@ class UsersTableSeeder extends Seeder {
         $users = array(
             array(
                 'username'      => 'admin',
+                'first_name'    => 'Advertising',
+                'last_name'     => 'Manager',
                 'email'      => 'admin@example.org',
                 'password'   => Hash::make('admin'),
                 'confirmed'   => 1,
-                'confirmation_code' => md5(microtime().Config::get('app.key')),
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
+                'confirmation_code' => md5(microtime().Config::get('app.key'))
+                //'created_at' => new DateTime,
+                //'updated_at' => new DateTime,
             ),
             array(
-                'username'      => 'user',
-                'email'      => 'user@example.org',
-                'password'   => Hash::make('user'),
-                'confirmed'   => 1,
-                'confirmation_code' => md5(microtime().Config::get('app.key')),
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
+                'username'          => 'user',
+                'first_name'        => 'Advertising',
+                'last_name'         => 'Company',
+                'email'             => 'user@example.org',
+                'password'          => Hash::make('user'),
+                'confirmed'         => 1,
+                'confirmation_code' => md5(microtime().Config::get('app.key'))
+                //'created_at'        => new DateTime,
+                //'updated_at'        => new DateTime,
             )
         );
 

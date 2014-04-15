@@ -8,8 +8,13 @@
 
 {{-- Content --}}
 @section('content')
-<div class="page-header">
-	<h1>Signup</h1>
+<div class="form-box" id="login-box">
+    <div class="header">Sign Up</div>
+    	<div class="body bg-gray">
+
+			{{ Confide::makeSignupForm()->render() }}
+		
+		</div>
+	</div>
 </div>
-{{ Confide::makeSignupForm()->render() }}
 @stop

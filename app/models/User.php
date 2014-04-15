@@ -105,6 +105,13 @@ class User extends ConfideUser implements PresentableInterface {
         return (new Confide(new ConfideEloquentRepository()))->user();
     }
 
+    public function advertisers() {
+        return $this->hasMany('Advertiser');
+    }
+
+    public function invoice() {
+        return $this->hasMany('Invoice');
+    }
 
 
 }

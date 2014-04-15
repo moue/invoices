@@ -16,16 +16,14 @@
  *  ------------------------------------------
  */
 Route::model('user', 'User');
-Route::model('comment', 'Comment');
-Route::model('post', 'Post');
+//Route::model('invoice', 'Invoice');
+//Route::model('invoice_item', 'InvoiceItem');
 Route::model('role', 'Role');
 
 /** ------------------------------------------
  *  Route constraint patterns
  *  ------------------------------------------
  */
-Route::pattern('comment', '[0-9]+');
-Route::pattern('post', '[0-9]+');
 Route::pattern('user', '[0-9]+');
 Route::pattern('role', '[0-9]+');
 Route::pattern('token', '[0-9a-z]+');
@@ -37,20 +35,11 @@ Route::pattern('token', '[0-9a-z]+');
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 
-    # Comment Management
-    Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit');
-    Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit');
-    Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete');
-    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete');
-    Route::controller('comments', 'AdminCommentsController');
+    # Invoice Management
+    Route::resource('invoice', 'InvoicesController');
 
-    # Blog Management
-    Route::get('blogs/{post}/show', 'AdminBlogsController@getShow');
-    Route::get('blogs/{post}/edit', 'AdminBlogsController@getEdit');
-    Route::post('blogs/{post}/edit', 'AdminBlogsController@postEdit');
-    Route::get('blogs/{post}/delete', 'AdminBlogsController@getDelete');
-    Route::post('blogs/{post}/delete', 'AdminBlogsController@postDelete');
-    Route::controller('blogs', 'AdminBlogsController');
+    # Advertiser Management
+    Route::resource('advertiser', 'AdvertisersController');
 
     # User Management
     Route::get('users/{user}/show', 'AdminUsersController@getShow');
@@ -70,6 +59,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     # Admin Dashboard
     Route::controller('/', 'AdminDashboardController');
+
 });
 
 
@@ -93,9 +83,6 @@ Route::controller('user', 'UserController');
 
 //:: Application Routes ::
 
-# Filter for detect language
-Route::when('contact-us','detectLang');
-
 # Contact Us Static Page
 Route::get('contact-us', function()
 {
@@ -103,9 +90,16 @@ Route::get('contact-us', function()
     return View::make('site/contact-us');
 });
 
-# Posts - Second to last set, match slug
-Route::get('{postSlug}', 'BlogController@getView');
-Route::post('{postSlug}', 'BlogController@postView');
-
 # Index Page - Last route, no matches
-Route::get('/', array('before' => 'detectLang','uses' => 'BlogController@getIndex'));
+Route::get('/', array('before' => 'detectLang','uses' => 'UserController@getIndex'));
+
+View::composer(['invoices.create', 'invoices.edit', 'invoices.show', 'invoices.index'], function($view)
+{
+    $user_options = User::select(DB::raw('concat (first_name," ",last_name) as full_name,id'))->lists('full_name', 'id');
+    $advertiser_options = Advertiser::all()->lists('advertiser', 'id');
+    $size_options = DB::table('invoice_items_sizes')->lists('size', 'id');
+
+    $view->with('user_options', $user_options)
+         ->with('advertiser_options', $advertiser_options)
+         ->with('size_options', $size_options);
+});

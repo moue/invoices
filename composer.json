@@ -17,13 +17,14 @@
         ],
 	"require": {
 		"laravel/framework": "4.1.*",
-		"twbs/bootstrap":  "3.0.0",
+		"patricktalmadge/bootstrapper": "dev-develop",
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
 		"jasonlewis/basset": "dev-master",
 		"robclancy/presenter": "1.2.*",
         "j20/php-uuid": "dev-master",
-        "bllim/datatables": "*"
+        "bllim/datatables": "*",
+        "stripe/stripe-php": "v1.8.3"
 	},
 	"require-dev": {
         "way/generators": "dev-master",
@@ -45,7 +46,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/library"
-		]
+		],
+		"psr-0": {
+			"helpers": "app/"
+		}
 	},
 	"scripts": {
 		"pre-update-cmd": [

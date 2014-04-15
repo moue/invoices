@@ -1,1 +1,1 @@
-@extends('site.layouts.default')
+@extends('site.user.index')
