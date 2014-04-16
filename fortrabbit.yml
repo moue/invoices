@@ -3,7 +3,7 @@ version: 1
 
 composer: 
     mode: always
-    method: install
+    method: update
     include-dev: 1
 post-deploy:
     args:
