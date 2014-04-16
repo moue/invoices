@@ -103,3 +103,18 @@ View::composer(['invoices.create', 'invoices.edit', 'invoices.show', 'invoices.i
          ->with('advertiser_options', $advertiser_options)
          ->with('size_options', $size_options);
 });
+
+Route::get('/secret', function()
+{
+ 
+    $user = Auth::user();
+ 
+    if ($user->hasRole('advertiser'))
+    {
+        return 'You are an advertiser!';
+    }
+    elseif ($user->hasRole('admin')) {
+        return 'You are an admin';
+    }
+    return 'You have no roles!';
+});

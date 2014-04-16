@@ -121,7 +121,7 @@ class AdvertisersController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($e->getErrors());
 		}
 		
-		return Redirect::to('advertiser');
+		return Redirect::to('/admin/advertiser');
 	}
 
 	/**

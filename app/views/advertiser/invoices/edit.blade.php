@@ -6,7 +6,7 @@
 </section>
 
 <section class="content">
-    {{ Form::model($advertiser, ['method'=>'PATCH', 'route'=>['invoice.update', $invoices->id], 'files'=>true]) }}
+    {{ Form::model($advertiser, ['method'=>'PATCH', 'route'=>['admin.invoice.update', $invoices->id], 'files'=>true]) }}
     	@include('invoices/partials/_form')
     	<div class="box-footer">
         	{{ Form::submit('Update Invoice', array('class'=>'btn bg-purple btn-block')) }}
