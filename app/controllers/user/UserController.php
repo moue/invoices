@@ -412,6 +412,6 @@ class UserController extends BaseController {
         
         // Update to a paid invoice
         DB::table('invoices')->where('id', '=', $id)->update(array('paid'=>'1'));
-        return View::make('site.user.invoice.index')->with('notification', 'Payment successful');
+        return Redirect::to('/');
     }
 }

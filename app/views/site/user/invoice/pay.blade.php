@@ -11,7 +11,7 @@
 
 <section class="content">
     <!-- form start -->
-    {{ Form::open(['id'=>'billing-form', 'action'=>'UserController@postPay']) }}
+    {{ Form::open(['id'=>'billing-form', 'action'=> array('UserController@postPay', $id)]) }}
     	<div class="box-footer">
 			<!-- Table row -->
             <div class="row">
