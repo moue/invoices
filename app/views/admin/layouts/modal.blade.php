@@ -44,7 +44,14 @@
 	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 	<!-- CSS -->
-    {{ Basset::show('admin.css') }}
+	{{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}        
+    <!-- Icon Styles -->
+    {{ HTML::style('css/font-awesome.css') }}
+    {{ HTML::style('css/ionicons.min.css')}}
+    <!-- Font Styles -->
+    {{ HTML::style('css/fonts.css') }}
+    <!-- Theme style -->
+    {{ HTML::style('css/AdminLTE.css') }} 
 
 	<style>
 	.tab-pane {
