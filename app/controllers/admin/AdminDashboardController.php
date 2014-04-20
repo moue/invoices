@@ -17,7 +17,7 @@ class AdminDashboardController extends AdminController {
         $revenue = DB::table('invoices')
             ->where('invoices.user_id','=',$id)
             ->sum('invoices.cost');
-
+        
         // Get total amount of accounts that user manages
         $accounts_owned = Auth::User()->advertisers->count();
 

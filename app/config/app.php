@@ -122,7 +122,8 @@ return array(
         'Robbo\Presenter\PresenterServiceProvider', // Presenter
         'Bllim\Datatables\DatatablesServiceProvider', // Datatables
         'Bootstrapper\BootstrapperServiceProvider',
-        'helpers\Billing\BillingServiceProvider'
+        'helpers\Billing\BillingServiceProvider',
+
 
         /* Uncomment for use in development */
 //        'Way\Generators\GeneratorsServiceProvider', // Generators

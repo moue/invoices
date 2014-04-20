@@ -17,8 +17,8 @@ class InvoicesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$invoices = Auth::user()->invoice()->get();
-
+		$user_id = Auth::user()->id;
+		$invoices = Invoice::with('invoiceitem')->where('user_id', '=', $user_id)->get();
 		/* Get full invoice query
 		$invoices = DB::table('invoices')
 			->leftJoin('advertisers', 'invoices.advertiser_id','=','advertisers.id')

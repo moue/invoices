@@ -71,24 +71,36 @@
                                 <h4><i class="fa fa-laptop"></i> Dashboard</h4>
                             </a>
                         </li>
-                        <li>
+                        <li class="treeview">
                             <a href="/admin/invoice">
-                                <h4><i class="fa fa-exchange"></i> View Invoices</h4>
+                                <h4><i class="fa fa-credit-card"></i>
+                                Invoices
+                                <i class="fa fa-angle-left pull-right"></i></h4>
                             </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/admin/invoice/create" style="margin-left: 10px;">
+                                    <h4><i class="fa fa-angle-double-right"></i> Create Invoice</h4></a></li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="/admin/invoice/create">
-                                <h4><i class="fa fa-credit-card"></i> Create Invoice</h4>
-                            </a>
-                        </li>
-                        <li>
+                        <li class="treeview">
                             <a href="/admin/advertiser">
-                                <h4><i class="fa fa-group"></i> View Advertisers</h4>
+                                <h4><i class="fa fa-envelope-o"></i>
+                                Advertisers
+                                <i class="fa fa-angle-left pull-right"></i></h4>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="/admin/advertiser/create" style="margin-left: 10px;">
+                                    <h4><i class="fa fa-angle-double-right"></i> Add Advertiser</h4></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/admin/users">
+                                <h4><i class="fa fa-user"></i> Manage Users</h4>
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/advertiser/create">
-                                <h4><i class="fa fa-user"></i> Add Advertiser</h4>
+                            <a href="/admin/roles">
+                                <h4><i class="fa fa-group"></i> Manage Roles</h4>
                             </a>
                         </li>
 

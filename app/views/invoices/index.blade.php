@@ -37,7 +37,7 @@
                                 <td>{{ $invoice->id }}</td>
                                 <td>{{ date('m/d/Y', strtotime($invoice->created_at)) }}</td>
                                 <td>{{ $advertiser_options[$invoice->advertiser_id] }}</td>
-                                <td>{{ $invoice->cost }}</td>
+                                <td>${{ $invoice->invoiceitem->sum('cost') }}</td>
                                 <td>{{ ($invoice->trade) ? 'Yes' : 'No' }}</td>
                                 <td>{{ ($invoice->paid) ? 'Paid' : 'Unpaid' }}</td>
                                 <td>{{ link_to('admin/invoice/'.$invoice->id, 'View') }} / {{ link_to('admin/invoice/'.$invoice->id.'/edit', 'Edit') }}</td>

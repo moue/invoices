@@ -38,8 +38,7 @@ class UserController extends BaseController {
         else {
             $user_id = Auth::user()->id;
             $advertiser = DB::table('advertisers')->where('contact_id', '=', $user_id)->first();
-            $invoices = DB::table('invoices')->where('advertiser_id', '=', $advertiser->id)->get();
-
+            $invoices = Invoice::with('invoiceitem')->where('advertiser_id', '=', $advertiser->id)->get();
             /* Get full invoice query
             $invoices = DB::table('invoices')
                 ->leftJoin('advertisers', 'invoices.advertiser_id','=','advertisers.id')

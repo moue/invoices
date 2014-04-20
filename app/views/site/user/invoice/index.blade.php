@@ -37,7 +37,7 @@
                             <tr style="text-align:center;">
                                 <td>{{ $invoice->id }}</td>
                                 <td>{{ date('m/d/Y', strtotime($invoice->created_at)) }}</td>
-                                <td>{{ $invoice->cost }}</td>
+                                <td>${{ $invoice->invoiceitem->sum('cost') }}</td>
                                 <td>{{ ($invoice->trade) ? 'Yes' : 'No' }}</td>
                                 <td>{{ ($invoice->paid) ? 'Paid' : 'Unpaid' }}</td>
                                 <td>{{ link_to('user/pay/'.$invoice->id, 'View/Pay') }}</td>
