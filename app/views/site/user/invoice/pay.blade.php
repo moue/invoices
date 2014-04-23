@@ -87,8 +87,7 @@
     {{ Form::close() }}
 
 </section>      
+
 @stop
 
-@section('footer')
-	<script src="/js/billing.js"></script>
-@stop
+	

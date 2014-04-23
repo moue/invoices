@@ -166,15 +166,22 @@
         </div><!-- ./wrapper -->
 
         <!-- Javascripts -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
         <script src="https://js.stripe.com/v2/"></script>
-        
-        <!-- Bootstrap, Datatables, and Colorbox Javascripts -->
-        {{ HTML::script('assets/compiled/site.js') }}
-
-        <!-- AdminLTE App -->
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- Bootstrap 
+        <script src="../../js/bootstrap.min.js" type="text/javascript"></script>-->
+        {{ HTML::script('assets/js/bootstrap.min.js') }}
+        <!-- DATA TABES SCRIPT
+        <script src="../../js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="../../js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>-->
+        {{ HTML::script('assets/js/datatables/jquery.dataTables.js') }}
+        {{ HTML::script('assets/js/datatables/dataTables.bootstrap.js') }}
+        {{ HTML::script('assets/js/jquery.colorbox.js') }}
+        <!-- AdminLTE App 
+        <script src="../../js/AdminLTE/app.js" type="text/javascript"></script>-->
         {{ HTML::script('assets/js/app.js') }}
+        {{ HTML::script('assets/js/billing.js') }}
 
         @yield('footer')
         @yield('scripts')

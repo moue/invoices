@@ -16,9 +16,9 @@ gulp.task('bootstrap', function(){
 
 gulp.task('css', function(){
 	return gulp.src([
-			'public/assets/fonts.css',
-			'public/assets/font-awesome.css',
-			'public/assets/ionicons.min.css'
+			'public/assets/css/fonts.css',
+			'public/assets/css/font-awesome.css',
+			'public/assets/css/ionicons.min.css'
 		])
 		.pipe(concat('site.css'))
 		.pipe(minifycss())
