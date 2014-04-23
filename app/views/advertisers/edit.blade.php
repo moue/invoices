@@ -1,3 +1,5 @@
+@extends('layouts.default')
+@section('content')
 <section class="content-header">
     <h1>
         Edit Advertiser Information
@@ -12,5 +14,5 @@
             {{ Form::submit('Edit Advertiser', array('class'=>'btn bg-purple btn-block')) }}
         </div>
     {{ Form::close() }}
-            
 </section>      
+@stop

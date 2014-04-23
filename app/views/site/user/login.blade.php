@@ -16,7 +16,7 @@
 {{-- Content --}}
 @section('content')
 <div class="form-box" id="login-box">
-    <div class="header">Login</div>
+    <div class="header">Log In</div>
         <div class="body bg-gray">
 
             {{ Confide::makeLoginForm()->render() }}

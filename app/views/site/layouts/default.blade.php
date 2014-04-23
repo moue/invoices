@@ -19,11 +19,11 @@
         <!-- bootstrap 3.0.2 -->
         {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}        
         <!-- font Awesome -->
-        {{ HTML::style('css/font-awesome.css') }}
+        {{ HTML::style('assets/css/font-awesome.css') }}
         <!-- Font Styles -->
-        {{ HTML::style('css/fonts.css') }}
+        {{ HTML::style('assets/css/fonts.css') }}
         <!-- Theme style -->
-        {{ HTML::style('css/AdminLTE.css') }} 
+        {{ HTML::style('assets/css/AdminLTE.css') }} 
 
 		<style>
 		@section('styles')
@@ -55,7 +55,7 @@
 		================================================== -->
         {{ HTML::script('packages/bootstrap/js/jquery-1.10.2.min.js') }}
         {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
-        {{ HTML::script('js/app.js') }}
+        {{ HTML::script('assets/js/app.js') }}
         
 
 	</body>

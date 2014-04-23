@@ -18,7 +18,6 @@
         <!-- Form Actions -->
         <div class="control-group">
             <div class="controls">
-                <element class="btn-cancel close_popup">Cancel</element>
                 <button type="submit" class="btn btn-danger">Delete</button>
             </div>
         </div>

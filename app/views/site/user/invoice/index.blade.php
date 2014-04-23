@@ -1,4 +1,4 @@
-@extends('site.layouts.dashboard')
+@extends('layouts.default')
 
 @section('content')
 <section class="content-header">

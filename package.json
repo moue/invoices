@@ -1,0 +1,31 @@
+{
+  "name": "invoices",
+  "version": "0.0.1",
+  "description": "Using Gulp with Laravel and Bootstrap",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moue/invoices.git"
+  },
+  "keywords": [
+    "Laravel"
+  ],
+  "author": "Yuqi Hou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moue/invoices/issues"
+  },
+  "homepage": "invoices.yuqihou.com",
+  "devDependencies": {
+    "gulp": "^3.6.1",
+    "gulp-minify-css": "^0.3.1",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-notify": "^1.2.5",
+    "gulp-less": "^1.2.3",
+    "gulp-concat": "^2.2.0",
+    "gulp-uglify": "^0.2.1"
+  }
+}

@@ -9,12 +9,14 @@
         <!-- bootstrap 3.0.2 -->
         {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}        
         <!-- Icon Styles -->
-        {{ HTML::style('css/font-awesome.css') }}
-        {{ HTML::style('css/ionicons.min.css')}}
+        {{ HTML::style('assets/css/font-awesome.css') }}
+        {{ HTML::style('assets/css/ionicons.min.css')}}
         <!-- Font Styles -->
-        {{ HTML::style('css/fonts.css') }}
+        {{ HTML::style('assets/css/fonts.css') }}
         <!-- Theme style -->
-        {{ HTML::style('css/AdminLTE.css') }} 
+        {{ HTML::style('assets/css/AdminLTE.css') }} 
+        <!-- Datatables style -->
+        {{ HTML::style('assets/compiled/site.css') }}
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,8 +76,16 @@
                                 <i class="fa fa-angle-left pull-right"></i></h4>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/admin/invoice/create" style="margin-left: 10px;">
-                                    <h4><i class="fa fa-angle-double-right"></i> Create Invoice</h4></a></li>
+                                <li>
+                                    <a href="/admin/invoice" style="margin-left: 10px;">
+                                        <h5><i class="fa fa-angle-double-right"></i> View Invoices</h5>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/admin/invoice/create" style="margin-left: 10px;">
+                                        <h5><i class="fa fa-angle-double-right"></i> Create Invoice</h5>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -85,8 +95,16 @@
                                 <i class="fa fa-angle-left pull-right"></i></h4>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/admin/advertiser/create" style="margin-left: 10px;">
-                                    <h4><i class="fa fa-angle-double-right"></i> Add Advertiser</h4></a></li>
+                                <li>
+                                    <a href="/admin/advertiser/" style="margin-left: 10px;">
+                                        <h5><i class="fa fa-angle-double-right"></i> View Advertisers</h5>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/admin/advertiser/create" style="margin-left: 10px;">
+                                        <h5><i class="fa fa-angle-double-right"></i> Add Advertiser</h5>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -124,7 +142,7 @@
                         @endif
                         <li>
                             <a href="/user/settings">
-                                <h4><i class="fa fa-user"></i> Settings</h4>
+                                <h4><i class="fa fa-gear"></i> Settings</h4>
                             </a>
                         </li>
                     </ul>
@@ -147,16 +165,18 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
 
-
-
-        <!-- jQuery 1.10.2 -->
-        {{ HTML::script('packages/bootstrap/js/jquery-1.10.2.min.js') }}
-        <!-- Bootstrap -->
-        {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
-        <!-- AdminLTE App -->
-        {{ HTML::script('js/app.js') }}
-        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+        <script src="https://js.stripe.com/v2/"></script>
         
+        <!-- Bootstrap, Datatables, and Colorbox Javascripts -->
+        {{ HTML::script('assets/compiled/site.js') }}
+
+        <!-- AdminLTE App -->
+        {{ HTML::script('assets/js/app.js') }}
+
         @yield('footer')
+        @yield('scripts')
     </body>
 </html>

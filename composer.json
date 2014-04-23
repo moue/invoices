@@ -34,7 +34,8 @@
         "leafo/lessphp": "v0.4.0",
         "natxet/CssMin": "dev-master",
         "lmammino/jsmin4assetic": "1.0.*",
-        "barryvdh/laravel-debugbar": "1.*"
+        "barryvdh/laravel-debugbar": "1.*",
+        "phpunit/phpunit": "4.0.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -1,3 +1,6 @@
+@extends('layouts.default')
+
+@section('content')
 <section class="content-header">
     <h1>
         Edit Existing Invoice
@@ -13,3 +16,4 @@
      	</div>
     {{ Form::close() }}
 </section>      
+@stop

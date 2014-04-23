@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('admin.layouts.default')
 
 {{-- Web site Title --}}
 @section('title')
@@ -7,30 +7,38 @@
 
 {{-- Content --}}
 @section('content')
-	<div class="page-header">
-		<h3>
-			{{{ $title }}}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+			<div class="box" style="padding: 0px 20px 20px 20px">
+				<div class="page-header">
+					<h3>
+						{{{ $title }}}
 
-			<div class="pull-right">
-				<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+						<div class="pull-right">
+							<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+						</div>
+					</h3>
+				</div>
+
+				<table id="users" class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-2">{{{ Lang::get('admin/users/table.username') }}}</th>
+							<th class="col-md-2">{{{ Lang::get('admin/users/table.email') }}}</th>
+							<th class="col-md-2">{{{ Lang::get('admin/users/table.roles') }}}</th>
+							<th class="col-md-2">{{{ Lang::get('admin/users/table.activated') }}}</th>
+							<th class="col-md-2">{{{ Lang::get('admin/users/table.created_at') }}}</th>
+							<th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
-		</h3>
-	</div>
-
-	<table id="users" class="table table-striped table-hover">
-		<thead>
-			<tr>
-				<th class="col-md-2">{{{ Lang::get('admin/users/table.username') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('admin/users/table.email') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('admin/users/table.roles') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('admin/users/table.activated') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('admin/users/table.created_at') }}}</th>
-				<th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
+		</div>
+	<div>
+</section>
 @stop
 
 {{-- Scripts --}}

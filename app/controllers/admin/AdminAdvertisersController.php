@@ -4,7 +4,6 @@ use helpers\services\AdvertiserManagerService;
 
 class AdvertisersController extends \BaseController {
 
-	protected $layout = 'layouts.dashboard';
 	protected $advertiserManager;
 
 	public function __construct(AdvertiserManagerService $advertiserManager) 
@@ -28,7 +27,7 @@ class AdvertisersController extends \BaseController {
 		}])->get();
 
 
-		$this->layout->content = View::make('advertisers.index')
+		return View::make('advertisers.index')
 			->with('all_advertisers', $all_advertisers)
 			->with('my_advertisers', $my_advertisers)
 			->with('username', $username);
@@ -44,7 +43,7 @@ class AdvertisersController extends \BaseController {
 	{	
 		$user = Auth::user();
 		$user_options = User::select(DB::raw('concat (first_name," ",last_name) as full_name,id'))->lists('full_name', 'id');
-		$this->layout->content = View::make('advertisers.create')->with('user_options', $user_options);
+		return View::make('advertisers.create')->with('user_options', $user_options);
 	}
 
 	/**
@@ -79,7 +78,7 @@ class AdvertisersController extends \BaseController {
 	{
 		$advertiser = Advertiser::findOrFail($id); // Find advertiser
 		$invoices = $advertiser->invoices; // Find all invoices associated with advertiser
-		$this->layout->content = View::make('advertisers.show')->with('advertiser', $advertiser)->with('invoices', $invoices);
+		return View::make('advertisers.show')->with('advertiser', $advertiser)->with('invoices', $invoices);
 	}	
 
 	/**
@@ -97,7 +96,7 @@ class AdvertisersController extends \BaseController {
 		$user = Auth::user();
 		$user_options = User::select(DB::raw('concat (first_name," ",last_name) as full_name,id'))->lists('full_name', 'id');
 		
-		$this->layout->content = View::make('advertisers.edit')->with('advertiser', $advertiser)->with('user_options', $user_options);
+		return View::make('advertisers.edit')->with('advertiser', $advertiser)->with('user_options', $user_options);
 
 	}
 

@@ -21,7 +21,6 @@
         <div class="control-group">
             <div class="controls">
                 Delete Role
-                <element class="btn-cancel close_popup">Cancel</element>
                 <button type="submit" class="btn btn-danger">Delete</button>
             </div>
         </div>

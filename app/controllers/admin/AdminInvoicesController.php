@@ -4,8 +4,6 @@ use helpers\services\InvoiceManagerService;
 
 class InvoicesController extends \BaseController {
 
-	protected $layout = "layouts.dashboard";
-
 	public function __construct(InvoiceManagerService $invoiceManager) {
 		$this->invoiceManager = $invoiceManager;
 	}
@@ -25,7 +23,7 @@ class InvoicesController extends \BaseController {
 			->get();
 		*/
 
-		$this->layout->content = View::make('invoices.index')->with('invoices', $invoices);
+		return View::make('invoices.index')->with('invoices', $invoices);
 
 	}
 
@@ -37,7 +35,7 @@ class InvoicesController extends \BaseController {
 	public function create()
 	{
 
-		$this->layout->content = View::make('invoices.create');
+		return View::make('invoices.create');
 	}
 
 	/**
@@ -104,7 +102,7 @@ class InvoicesController extends \BaseController {
 			->where('invoice_items.invoice_id','=',$id)
 			->sum('invoice_items.cost');
 		
-		$this->layout->content = View::make('invoices.show')
+		return View::make('invoices.show')
 			->with('invoices', $fullinvoice)
 			->with('total', $totalcost)
 			->with('advertiser', $advertiser)
@@ -145,7 +143,7 @@ class InvoicesController extends \BaseController {
 			->where('invoice_items.invoice_id','=',$id)
 			->sum('invoice_items.cost');
 		
-		$this->layout->content = View::make('invoices.edit')
+		return View::make('invoices.edit')
 			->with('invoice', $fullinvoice)
 			->with('total', $totalcost);
 	

@@ -33,8 +33,8 @@ return array(
     |
     |
     */
-    'login_form' =>             'confide::login',
-    'signup_form' =>            'confide::signup',
+    'login_form' =>             'users._partials.login_form',
+    'signup_form' =>            'users._partials.signup_form',
     'forgot_password_form' =>   'confide::forgot_password',
     'reset_password_form' =>    'confide::reset_password', //*
 

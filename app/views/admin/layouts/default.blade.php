@@ -44,21 +44,31 @@
 	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 	<!-- CSS -->
+    <!--<link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+    <!-- font Awesome 
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css" />-->
+    <!-- Ionicons 
+    <link href="../../css/ionicons.min.css" rel="stylesheet" type="text/css" />-->
+    <!-- DATA TABLES 
+    <link href="../../css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />-->
+    
+    <!-- Theme style 
+    <link href="../../css/AdminLTE.css" rel="stylesheet" type="text/css" />-->
+    <!--<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-theme.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/wysihtml5/prettify.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/wysihtml5/bootstrap-wysihtml5.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/datatables-bootstrap.css')}}">-->
     {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}        
     <!-- Icon Styles -->
-    {{ HTML::style('css/font-awesome.css') }}
-    {{ HTML::style('css/ionicons.min.css')}}
+    {{ HTML::style('assets/css/font-awesome.css') }}
+    {{ HTML::style('assets/css/ionicons.min.css')}}
     <!-- Font Styles -->
-    {{ HTML::style('css/fonts.css') }}
+    {{ HTML::style('assets/css/fonts.css') }}
     <!-- Theme style -->
-    {{ HTML::style('css/AdminLTE.css') }} 
-    
-
-	<style>
-	body {
-		padding: 60px 0;
-	}
-	</style>
+    {{ HTML::style('assets/css/AdminLTE.css') }} 
+        <!-- Datatables style -->
+    {{ HTML::style('assets/compiled/site.css') }}
 
 	@yield('styles')
 
@@ -67,95 +77,169 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<!-- Asynchronous google analytics; this is the official snippet.
-	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-	  	_gaq.push(['_setAccount', 'UA-31122385-3']);
-	  	_gaq.push(['_trackPageview']);
-
-	  	(function() {
-	   		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  	})();
-
-	</script> -->
-
 </head>
 
-<body>
-	<!-- Container -->
-	<div class="container">
-		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-    			<div class="collapse navbar-collapse navbar-ex1-collapse">
-    				<ul class="nav navbar-nav">
-    					<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-    					<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> Blog</a></li>
-    					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> Comments</a></li>
-    					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
-    							<span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu">
-    							<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-    							<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><span class="glyphicon glyphicon-user"></span> Roles</a></li>
-    						</ul>
-    					</li>
-    				</ul>
-    				<ul class="nav navbar-nav pull-right">
-    					<li><a href="{{{ URL::to('/') }}}">View Homepage</a></li>
-    					<li class="divider-vertical"></li>
-    					<li class="dropdown">
-    							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    								<span class="glyphicon glyphicon-user"></span> {{{ Auth::user()->username }}}	<span class="caret"></span>
-    							</a>
-    							<ul class="dropdown-menu">
-    								<li><a href="{{{ URL::to('user/settings') }}}"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-    								<li class="divider"></li>
-    								<li><a href="{{{ URL::to('user/logout') }}}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
-    							</ul>
-    					</li>
-    				</ul>
-    			</div>
+<body class="skin-black">
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+        <a href="/" class="logo">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            Lampoon
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                @if(Auth::check())
+                    <li>
+                        <p style="padding:15px;"><i class="glyphicon glyphicon-user"></i> Hello {{ Auth::user()->email }}</p>
+                    </li>
+                    <li>{{ HTML::link('user/logout', 'Logout') }}</li>
+                @endif
+                </ul>
             </div>
-		</div>
-		<!-- ./ navbar -->
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">                
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    @if (Auth::check())
+                    @if (Auth::user()->hasRole('admin'))
+                    
+                    
+                    <li>
+                        <a href="/">
+                            <h4><i class="fa fa-laptop"></i> Dashboard</h4>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="/admin/invoice">
+                            <h4><i class="fa fa-credit-card"></i>
+                            Invoices
+                            <i class="fa fa-angle-left pull-right"></i></h4>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/admin/invoice" style="margin-left: 10px;">
+                                    <h5><i class="fa fa-angle-double-right"></i> View Invoices</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/invoice/create" style="margin-left: 10px;">
+                                    <h5><i class="fa fa-angle-double-right"></i> Create Invoice</h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="/admin/advertiser">
+                            <h4><i class="fa fa-envelope-o"></i>
+                            Advertisers
+                            <i class="fa fa-angle-left pull-right"></i></h4>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/admin/advertiser/" style="margin-left: 10px;">
+                                    <h5><i class="fa fa-angle-double-right"></i> View Advertisers</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/advertiser/create" style="margin-left: 10px;">
+                                    <h5><i class="fa fa-angle-double-right"></i> Add Advertiser</h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/admin/users">
+                            <h4><i class="fa fa-user"></i> Manage Users</h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/roles">
+                            <h4><i class="fa fa-group"></i> Manage Roles</h4>
+                        </a>
+                    </li>
 
-		<!-- Notifications -->
-		@include('notifications')
-		<!-- ./ notifications -->
+                    @else
+                   
 
-		<!-- Content -->
-		@yield('content')
-		<!-- ./ content -->
+                    <li>
+                        <a href="/user">
+                            <h4><i class="fa fa-credit-card"></i> View Invoices</h4>
+                        </a>
+                    </li>
+                    <!--<li>
+                        <a href="/user/invoices">
+                            <h4><i class="fa fa-folder-open"></i> View Ads</h4>
+                        </a>
+                    </li>-->
+                    
+                    
+                    <!--<li>
+                        <a href="/user/help">
+                            <h4><i class="fa fa-group"></i> Contact Us</h4>
+                        </a>
+                    </li>-->
+                    @endif
+                    @endif
+                    <li>
+                        <a href="/user/settings">
+                            <h4><i class="fa fa-gear"></i> Settings</h4>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
 
-		<!-- Footer -->
-		<footer class="clearfix">
-			@yield('footer')
-		</footer>
-		<!-- ./ Footer -->
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">
+         	<div class="container">
+                <!-- Notifications -->
+				@include('notifications')
+				<!-- ./ notifications -->
+            </div>
 
-	</div>
-	<!-- ./ container -->
+			<!-- Content -->
+			@yield('content')
+			<!-- ./ content -->
 
-	<!-- Javascripts -->
-    {{ Basset::show('admin.js') }}
+			<!-- Footer -->
+			<footer class="clearfix">
+				@yield('footer')
+			</footer>
+			<!-- ./ Footer -->
 
-    <script type="text/javascript">
-    	$('.wysihtml5').wysihtml5();
-        $(prettyPrint);
-    </script>
+		</aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+
+
+ 	<!-- jQuery 2.0.2 -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!-- Bootstrap 
+    <script src="../../js/bootstrap.min.js" type="text/javascript"></script>-->
+    {{ HTML::script('assets/js/bootstrap.min.js') }}
+    <!-- DATA TABES SCRIPT
+    <script src="../../js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="../../js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>-->
+    {{ HTML::script('assets/js/datatables/jquery.dataTables.js') }}
+    {{ HTML::script('assets/js/datatables/dataTables.bootstrap.js') }}
+    {{ HTML::script('assets/js/jquery.colorbox.js') }}
+    <!-- AdminLTE App 
+    <script src="../../js/AdminLTE/app.js" type="text/javascript"></script>-->
+    {{ HTML::script('assets/js/app.js') }}
 
     @yield('scripts')
 

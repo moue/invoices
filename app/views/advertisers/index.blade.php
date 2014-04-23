@@ -1,3 +1,6 @@
+@extends('layouts.default')
+
+@section('content')
 <section class="content-header">
     <h1>
         Advertisers
@@ -111,3 +114,4 @@
         </div>
     </div>
 </section><!-- /.content -->
+@stop

@@ -1,3 +1,6 @@
+@extends('layouts.default')
+
+@section('content')
 <section class="content-header">
     <h1>
         View Invoices
@@ -63,5 +66,5 @@
             </div><!-- /.box -->
         </div>
     </div>
-            
 </section>      
+@stop
