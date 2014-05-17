@@ -7,7 +7,7 @@ Built using Laravel 4.1. Features include heavy integration with the Stripe API.
 To connect, follow [@yuqih](https://twitter.com/yuqih) or [@harvardadvocate](https://twitter.com/harvardadvocate).
 
 ----------
-
+[TOC]
 
 ##Features
 * [Bootstrap 3.x](http://getbootstrap.com/)
@@ -36,7 +36,7 @@ To connect, follow [@yuqih](https://twitter.com/yuqih) or [@harvardadvocate](htt
 
 
 
-###Roadmap
+##Roadmap
 
 * Import/export clients and subscriptions
 * Buy a subscription landing page
@@ -161,7 +161,7 @@ gulp name-of-task
 
 ### Step 10: Start Page
 
-### Client portal login
+#### Client portal login
 Navigate to your Laravel 4 website and login at /user/login:
 
     username : user
@@ -175,7 +175,7 @@ card number: 4242424242424242
 cvc: 4242 
 expiration date: 5/2016
 ```
-### Business portal login
+#### Business portal login
 Navigate to /admin
 
     username: admin
@@ -188,11 +188,11 @@ The structure of this starter site is the same as default Laravel 4 with one exc
 This starter site adds a `library` folder and a `helpers` folder. Both folders house application specific library files, services, and validators.
 The files within library could also be handled within a composer package, but is included here as an example.
 
-### Production Launch
+## Production Launch
 
 By default debugging is enabled. Before you go to production you should disable debugging in `app/config/app.php`
 
-###Fortrabbit
+##Fortrabbit
 
 Included fortrabbit.yml file for Fortrabbit deployment. Note that Fortrabbit does not install dev packages by default.
 
