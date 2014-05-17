@@ -7,7 +7,6 @@ Built using Laravel 4.1. Features include heavy integration with the Stripe API.
 To connect, follow [@yuqih](https://twitter.com/yuqih) or [@harvardadvocate](https://twitter.com/harvardadvocate).
 
 ----------
-[TOC]
 
 ##Features
 * [Bootstrap 3.x](http://getbootstrap.com/)
