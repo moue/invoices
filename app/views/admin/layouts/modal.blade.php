@@ -44,16 +44,7 @@
 	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 	<!-- CSS -->
-    {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}        
-    <!-- Icon Styles -->
-    {{ HTML::style('css/font-awesome.css') }}
-    {{ HTML::style('css/ionicons.min.css')}}
-    <!-- Font Styles -->
-    {{ HTML::style('css/fonts.css') }}
-    <!-- Theme style -->
-    {{ HTML::style('css/AdminLTE.css') }} 
-    <!-- Datatables and colorbox -->
-    {{ HTML::style('assets/compiled/css/all.css') }}
+    {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
 
 	<style>
 	.tab-pane {
@@ -116,7 +107,12 @@
 	<!-- ./ container -->
 
 	<!-- Javascripts -->
-    {{ Basset::show('admin.js') }}
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+	{{ HTML::script('assets/js/bootstrap.min.css') }}
+	{{ HTML::script('assets/js/jquery.colorbox.js') }}
+	{{ HTML::script('assets/js/prettify.js') }}
+
+	{{ HTML::script('assets/compiled/site.js') }}
 
  <script type="text/javascript">
 $(document).ready(function(){
@@ -139,8 +135,6 @@ parent.oTable.fnReloadAjax();
 event.preventDefault();
 });
 });
-$('.wysihtml5').wysihtml5();
-$(prettyPrint)
 </script>
 
     @yield('scripts')

@@ -25,9 +25,24 @@ gulp.task('css', function(){
 		.pipe(gulp.dest('public/assets/compiled'));
 });
 
+gulp.task('modal-css', function(){
+	return gulp.src([
+			'public/assets/css/fonts.css',
+			'public/assets/css/font-awesome.css',
+			'public/assets/css/ionicons.min.css',
+			'public/assets/css/bootstrap.min.css',
+			'public/assets/css/AdminLTE.css',
+			'public/assets/css/colorbox.css',
+		])
+		.pipe(concat('modal.css'))
+		.pipe(minifycss())
+		.pipe(gulp.dest('public/assets/compiled'));
+});
+
 gulp.task('scripts', function(){
 	return gulp.src([
 			'public/assets/js/bootstrap.min.js',
+			'public/assets/js/bootstrap/*.js',
 			'public/assets/js/billing.js', 
 			'public/assets/js/jquery.colorbox.js',
 			'public/assets/js/prettify',
@@ -50,7 +65,7 @@ gulp.task('watch', function() {
 	gulp.watch('app/**/*.php', ['phpunit']);
 });
 
-gulp.task('default', ['bootstrap', 'css', 'scripts', 'phpunit', 'watch']);
+gulp.task('default', ['bootstrap', 'css', 'modal-css', 'scripts', 'phpunit', 'watch']);
 
 
 
