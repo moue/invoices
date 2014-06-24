@@ -90,6 +90,9 @@ Route::get('contact-us', function()
     return View::make('site/contact-us');
 });
 
+# Subscribe Static Page
+
+
 # Index Page - Last route, no matches
 Route::get('/', array('before' => 'detectLang','uses' => 'UserController@getIndex'));
 
@@ -117,4 +120,10 @@ Route::get('/secret', function()
         return 'You are an admin';
     }
     return 'You have no roles!';
+});
+
+Route::get('/subscribe', function()
+{
+ 
+    return View::make('subscriptions/index');
 });

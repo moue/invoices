@@ -24,7 +24,8 @@
 		"robclancy/presenter": "1.2.*",
         "j20/php-uuid": "dev-master",
         "bllim/datatables": "*",
-        "stripe/stripe-php": "v1.8.3"
+        "stripe/stripe-php": "v1.8.3",
+        "maatwebsite/excel": "1.*"
 	},
 	"require-dev": {
         "way/generators": "dev-master",

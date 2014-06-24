@@ -123,6 +123,7 @@ return array(
         'Bllim\Datatables\DatatablesServiceProvider', // Datatables
         'Bootstrapper\BootstrapperServiceProvider',
         'helpers\Billing\BillingServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
 
         /* Uncomment for use in development */
@@ -204,6 +205,7 @@ return array(
         'String'          => 'Andrew13\Helpers\String', // String
         'Carbon'          => 'Carbon\Carbon', // Carbon
         'Datatables'      => 'Bllim\Datatables\Datatables', // DataTables
+        'Excel' 		  => 'Maatwebsite\Excel\Facades\Excel',
 
     ),
 

@@ -21,15 +21,14 @@
     <div class="row">
         <div class="col-xs-12">
             <h2 class="page-header">
-                The Harvard Lampoon
+                The Harvard Advocate
                 @foreach($invoices as $invoice)
                 <small class="pull-right"></small>
                 @endforeach
                 <small>
-                    44 Bow Street, Cambridge, MA 02138
+                    21 South St. Cambridge, MA 02138, Attn: Circulation Manager
                     <br>
-                    <span style="padding-right: 10px;">(617) 495-7801</span>
-                    <span>Fax: (617) 495-1668</span>
+                    <span style="padding-right: 10px;">advocate@theharvardadvocate.com</span>
                 </small>
 
             </h2>                            

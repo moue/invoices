@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			Lampoon Business Portal
+			Advocate Business Portal
 			@show
 		</title>
 
