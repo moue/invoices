@@ -9,21 +9,16 @@
             "homepage": "http://www.andrewelkins.com"
         }
     ],
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/Zizaco/ardent.git"
-            }
-        ],
 	"require": {
 		"laravel/framework": "4.1.*",
 		"patricktalmadge/bootstrapper": "dev-develop",
-		"zizaco/confide": "dev-master",
-		"zizaco/entrust": "dev-master",
+		"zizaco/confide": "~3.2",
+		"zizaco/entrust": "~1.2",
+		"laravelbook/ardent": "dev-master",
 		"jasonlewis/basset": "dev-master",
 		"robclancy/presenter": "1.2.*",
         "j20/php-uuid": "dev-master",
-        "bllim/datatables": "*",
+        "bllim/datatables": "~1.3",
         "stripe/stripe-php": "v1.8.3",
         "maatwebsite/excel": "1.*"
 	},

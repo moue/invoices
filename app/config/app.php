@@ -119,11 +119,12 @@ return array(
         'Zizaco\Confide\ConfideServiceProvider', // Confide Provider
         'Zizaco\Entrust\EntrustServiceProvider', // Entrust Provider for roles
         //'Basset\BassetServiceProvider', // Better Asset Management
-        'Robbo\Presenter\PresenterServiceProvider', // Presenter
+        
+        //'Robbo\Presenter\PresenterServiceProvider', // Presenter
         'Bllim\Datatables\DatatablesServiceProvider', // Datatables
         'Bootstrapper\BootstrapperServiceProvider',
         'helpers\Billing\BillingServiceProvider',
-        'Maatwebsite\Excel\ExcelServiceProvider',
+        //'Maatwebsite\Excel\ExcelServiceProvider',
 
 
         /* Uncomment for use in development */
